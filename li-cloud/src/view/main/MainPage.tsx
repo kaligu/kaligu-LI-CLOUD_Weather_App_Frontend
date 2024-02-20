@@ -32,8 +32,10 @@ function MainPage() {
       {/* {loading && <FullLoadScreen loadingTime={5}/>} */}
 
       <div
-      className='flex justify-center items-center h-screen  bg-[#070D59]'
+      className='flex justify-center flex-col items-center h-screen  bg-[#070D59]'
     >
+      <h1 className='text-white text-lg italic'>LI Cloud</h1>
+      <br></br>
       <div className='md:w-11/12 md:h-[600px] bg-cyan-400 md:rounded-2xl flex md:flex-row flex-col md:justify-center md:items-center h-screen w-screen'
        style={{backgroundImage: `url(${BACK_IMAGE})`, backgroundSize: 'cover'}}
       >
@@ -48,9 +50,9 @@ function MainPage() {
         {/* RSide */}
         <div className='md:w-8/12 md:h-[540px] w-full  flex flex-col justify-center items-center space-y-5'>
             {/* First Row */}
-            <div className='md:w-11/12 md:h-96 h-96 w-full bg-red-600 flex md:flex-row flex-col space-x-2'>
+            <div className='md:w-11/12 md:h-96 h-96 w-full flex md:flex-row flex-col space-x-2'>
                 {/* first card */}
-                <div className='md:w-6/12 md:h-full bg-green-200 w-full h-full'>
+                <div className='md:w-6/12 md:h-ful w-full h-full border-2 border-white rounded-xl shadow-2xl'>
                   <MainWeatherCard/>
                 </div>
 
