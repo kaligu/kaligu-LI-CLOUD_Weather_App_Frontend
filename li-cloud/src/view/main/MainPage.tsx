@@ -14,18 +14,28 @@ function MainPage() {
       <div
       className='flex justify-center items-center h-screen  bg-[#070D59]'
     >
-      <div className='md:w-11/12 md:h-[600px] bg-cyan-400 md:rounded-2xl flex flex-col justify-center items-center h-screen w-screen'
+      <div className='md:w-11/12 md:h-[600px] bg-cyan-400 md:rounded-2xl flex md:flex-row flex-col md:justify-center md:items-center h-screen w-screen'
        style={{backgroundImage: `url(${BACK_IMAGE})`, backgroundSize: 'cover'}}
       >
-        <div>
-          <img src={LOGO_IMAGE} alt="Logo" className="h-60" />
+        {/* LSide */}
+        <div className='md:w-4/12 md:h-[560px] bg-red-100 flex justify-center items-center md:ml-4 w-full '>
+            {/* Map */}
+            <div className='w-11/12 h-[380px] bg-red-500 mt-5 md:h-full'></div>
         </div>
 
-        <div className='flex flex-col justify-center items-center w-11/12'>
-          <h1 className='text-3xl text-yellow-200'>Weather</h1>
-          <h1 className='text-3xl text-cyan-100'>Forecast App.</h1>
-          <h1 className='text-xl text-gray-50'>It's the newest weather app of LI Innovationz.It has a bunch of features and that includes most of the ones that every weather app has.</h1>
-          <h1 className='text-xl text-gray-50'>Login to Your Account using One Click.</h1>
+        {/* RSide */}
+        <div className='md:w-8/12 md:h-[540px] w-full  bg-red-200 flex flex-col justify-center items-center space-y-5'>
+            {/* First Row */}
+            <div className='md:w-11/12 md:h-96 h-96 w-full bg-red-600 flex md:flex-row flex-col space-x-2'>
+                {/* first card */}
+                <div className='md:w-6/12 md:h-full bg-green-200 w-full h-full'></div>
+
+                {/* second card */}
+                <div className='md:w-6/12 md:h-full bg-green-400 w-full h-full'></div>
+            </div>
+
+            {/* Second Row */}
+            <div className='w-11/12 h-96 bg-red-800'></div>
         </div>
         
       </div>
