@@ -5,8 +5,14 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 import { GoogleLogin } from '@react-oauth/google';
 import FullLoadScreen from '../../components/FullLoadScreen';
 
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { jwtDecode } from 'jwt-decode';
+
+
 function LoginPage() {
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate(); // Use useNavigate for programmatic navigation
 
   const handleGoogleLogin = (credentialResponse:any) => {
     setLoading(true);
@@ -14,26 +20,34 @@ function LoginPage() {
     if (credentialResponse?.credential) {
       console.log(credentialResponse);
 
-      // axios.post(URL_SERVERAPI_USER_LOGIN, {
-      //   userData: credentialResponse,
-      // })
-      // .then(function (response:any) {
-      //   console.log(response);
-      //   // Handle the response as needed
-      //   const userProfileImage = response.data._data.picture;
+      axios.post('439833973834-e1inhrr6q80nvv8kmtr0i3m9lpbh54nn.apps.googleusercontent.com', {
+        userData: credentialResponse,
+      })
+      .then(function () {
+        console.log("*****************")
+        const decoded = jwtDecode(credentialResponse.credential);
+        localStorage.setItem('user', JSON.stringify(decoded));
+        const user = JSON.parse(localStorage.getItem('user') || '{}');
 
-      // // Store user profile image data in local storage
-      // localStorage.setItem('jur__data_Profile_image', userProfileImage);
+// Now you can access the picture URL from the user object
+const profilePicture = user.picture;
+        // Handle the response as needed
+        // const userProfileImage = decoded;
 
-      // })
-      // .catch(function (error: any) {
-      //   console.log(error);
-      // })
-      // .finally(() => {
-      //   setLoading(false); // Set loading to false on login error
+      // Store user profile image data in local storage
+      localStorage.setItem('li_cloud__data_Profile_image', profilePicture);
+      navigate('/main'); // Redirect to LoginPage route
+      
+      })
+      .catch(function (error: any) {
+        console.log(error);
+      })
+      .finally(() => {
+        setLoading(false); // Set loading to false on login error
 
-      // });
+      });
     } else {
+      navigate('/LoginPage'); // Redirect to LoginPage route
       console.log('Credential not available');
     }
   };

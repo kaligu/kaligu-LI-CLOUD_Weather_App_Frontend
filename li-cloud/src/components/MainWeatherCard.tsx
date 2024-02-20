@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import IMG01D from '../assets/icons/01d.svg';
 import IMG01N from '../assets/icons/01n.svg';
 import IMG02D from '../assets/icons/02d.svg';
@@ -29,6 +29,8 @@ function MainWeatherCard(props: WeatherData) {
   const [dateTime, setDateTime] = useState(new Date());
 
   useEffect(() => {
+    console.log(localStorage.getItem('li_cloud__data_Profile_image'));
+
     const interval = setInterval(() => {
       setDateTime(new Date());
     }, 1000);

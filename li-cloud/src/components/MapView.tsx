@@ -86,7 +86,7 @@ function MapView(props:PropsTypes) {
     lng: location.longitude,
   });
 
-  const userProfileImage = localStorage.getItem('jur_ni_data_Profile_image') || ''; // Get the user profile image data
+  const userProfileImage = localStorage.getItem('li_cloud__data_Profile_image') || ''; // Get the user profile image data
 
   const customIcon = new DivIcon({
     className: 'custom-icon',
