@@ -7,48 +7,54 @@ import { useEffect, useState } from 'react';
 import WeatherDetailsCard from '../../components/WeatherDetailsCard';
 import axios from 'axios';
 import UserWeatherDTO from '../../DTOs/UserWeatherDTO';
+import FullLoadScreen from '../../components/FullLoadScreen';
 
 interface Location {
     latitude: number;
     longitude: number;
     address: string; // Address is optional
   }
+
   
 function MainPage() {
-    // const [loading, setLoading] = useState(false);
     const [userLocation, setUserLocation] = useState<Location | undefined>();
-    
+    const [weatherData, setWeatherData] = useState<UserWeatherDTO>();
+    const [loading, setLoading] = useState(false);
     
     useEffect(() => {
       // Fetch weather data when userLocation changes
       if (userLocation) {
+        setLoading(true);
         axios.get(`http://localhost:9596/api/weather/current-data`)
           .then(response => {
-            console.log("ddddddddddddddddddddddddddd");
-            const weatherData = response.data.data; 
+            const resweatherData = response.data.data; 
 
             const userWeatherDTO = new UserWeatherDTO(
-              weatherData.description,
-              weatherData.temperature,
-              weatherData.feelsLike,
-              weatherData.minTemperature,
-              weatherData.maxTemperature,
-              weatherData.windSpeed,
-              weatherData.cloudiness,
-              weatherData.pressure,
-              weatherData.humidity,
-              weatherData.seaLevelPressure,
-              weatherData.imageCode,
-              weatherData.location,
-              weatherData.main
+              resweatherData.description,
+              resweatherData.temperature,
+              resweatherData.feelsLike,
+              resweatherData.minTemperature,
+              resweatherData.maxTemperature,
+              resweatherData.windSpeed,
+              resweatherData.cloudiness,
+              resweatherData.pressure,
+              resweatherData.humidity,
+              resweatherData.seaLevelPressure,
+              resweatherData.imageCode,
+              resweatherData.location,
+              resweatherData.main
             );
 
 
+          setWeatherData(userWeatherDTO);
           console.log(userWeatherDTO.toString());
 
           })
           .catch(error => {
             console.error('Error fetching weather data:', error);
+          })
+          .finally(() => {
+            setLoading(false);
           });
       }
     }, [userLocation]);
@@ -61,7 +67,7 @@ function MainPage() {
   return (
     <>
       {/* loading component */}
-      {/* {loading && <FullLoadScreen loadingTime={5}/>} */}
+      {loading && <FullLoadScreen loadingTime={5}/>}
 
       <div
       className='flex justify-center flex-col items-center h-screen  bg-[#070D59]'
@@ -90,18 +96,19 @@ function MainPage() {
 
                 {/* second card */}
                 <div className='md:w-6/12 md:h-ful w-full h-full border-2 border-blue-400 rounded-xl shadow-2xl'>
-                <WeatherDetailsCard
-                  description="Few Clouds"
-                  feelsLike="308.66K"
-                  minTemperature="304.46K"
-                  maxTemperature="304.46K"
-                  windSpeed="4.2m/s"
-                  cloudiness="23%"
-                  pressure="1008hPa"
-                  humidity="60%"
-                  seaLevelPressure="1008hPa"
-                  groundLevelPressure="1008hPa"
-                />
+                {weatherData && (
+                  <WeatherDetailsCard
+                    description={weatherData.getDescription()}
+                    feelsLike={weatherData.getFeelsLike().toString()}
+                    minTemperature={weatherData.getMinTemperature().toString()}
+                    maxTemperature={weatherData.getMaxTemperature().toString()}
+                    windSpeed={weatherData.getWindSpeed().toString()}
+                    cloudiness={weatherData.getCloudiness().toString()}
+                    pressure={weatherData.getPressure().toString()}
+                    humidity={weatherData.getHumidity().toString()}
+                    seaLevelPressure={weatherData.getSeaLevelPressure().toString()}
+                  />
+                )}
                 </div>
             </div>
 

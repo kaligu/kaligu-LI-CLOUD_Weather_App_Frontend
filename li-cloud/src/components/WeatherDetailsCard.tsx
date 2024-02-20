@@ -10,7 +10,6 @@ interface WeatherDetails {
     pressure: string;
     humidity: string;
     seaLevelPressure: string;
-    groundLevelPressure: string;
 }
 
 function WeatherDetailsCard(props: WeatherDetails) {
@@ -26,7 +25,6 @@ function WeatherDetailsCard(props: WeatherDetails) {
         <h1>⏏Pressure: {props.pressure}</h1>
         <h1>💦Humidity: {props.humidity}</h1>
         <h1>🌊Sea Level Pressure: {props.seaLevelPressure}</h1>
-        <h1>🕳️Ground Level Pressure: {props.groundLevelPressure}</h1>
      </div>
     </>
   )
