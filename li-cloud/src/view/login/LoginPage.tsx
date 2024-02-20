@@ -24,15 +24,16 @@ function LoginPage() {
         userData: credentialResponse,
       })
       .then(function () {
-        console.log("*****************")
+        
         const decoded = jwtDecode(credentialResponse.credential);
         localStorage.setItem('user', JSON.stringify(decoded));
         const user = JSON.parse(localStorage.getItem('user') || '{}');
 
-// Now you can access the picture URL from the user object
-const profilePicture = user.picture;
+        // Now you can access the picture URL from the user object
+        const profilePicture = user.picture;
         // Handle the response as needed
         // const userProfileImage = decoded;
+        console.log("*****************"+user.given_name);
 
       // Store user profile image data in local storage
       localStorage.setItem('li_cloud__data_Profile_image', profilePicture);

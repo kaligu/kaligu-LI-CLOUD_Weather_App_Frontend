@@ -22,10 +22,14 @@ interface Location {
 function MainPage() {
     const [userLocation, setUserLocation] = useState<Location | undefined>();
     const [weatherData, setWeatherData] = useState<UserWeatherDTO>();
+    const [usernName, setUserName] = useState();
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate(); // Initialize useNavigate hook
     
     useEffect(() => {
+      const user = JSON.parse(localStorage.getItem('user') || '{}');
+      setUserName(user.given_name);
+
       // Fetch weather data when userLocation changes
       if (userLocation) {
         setLoading(true);
@@ -133,12 +137,15 @@ function MainPage() {
             </div>
 
             {/* Second Row */}
-            <div className='w-11/12 h-96  rounded-xl shadow-2xl flex items-end justify-center items-center flex-col'>
+            {usernName && (
+            <div className='w-11/12 h-96  rounded-xl shadow-2xl flex justify-center items-center flex-col'>
               <br></br>
-              
+              <h1 className='text-sm text-black italic'>Have a Nice Day ... {usernName}</h1>
+              <br></br>
               <Button variant="outlined" color="error" onClick={LogoutBtnClicked}>Logout</Button>
               <h1 className='mt-10 text-sm mb-5 text-[#4D6DE3]'>Developed by @Kaligu jayanath</h1>
             </div>
+             )}
         </div>
         
       </div>
