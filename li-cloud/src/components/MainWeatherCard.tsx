@@ -76,7 +76,7 @@ function MainWeatherCard(props: WeatherData) {
             <h1 className='text-lg italic'>{dateTime.toLocaleString()}</h1>
             <br></br>
             <h1 className='text-2xl font-bold'>{props.main}</h1>
-            <h1 className='text-xl font-bold'>{props.temperature}K</h1>
+            <h1 className='text-xl font-bold'>{(props.temperature-273.15).toFixed(2)}°C</h1>
           </div>
         </div>
       </div>

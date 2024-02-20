@@ -47,8 +47,7 @@ function MapView(props:PropsTypes) {
                 const response = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&addressdetails=1`);
                 const data = await response.json();
           
-                addressName = data.display_name || 'Address not found';
-                console.log(data.display_name);
+                addressName = data.address.city || 'Address not found';
               } catch (error) {
                 console.error('Error fetching address:', error);
               }

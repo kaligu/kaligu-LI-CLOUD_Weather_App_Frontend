@@ -33,7 +33,8 @@ function MainPage() {
       // Fetch weather data when userLocation changes
       if (userLocation) {
         setLoading(true);
-        axios.get(`http://localhost:9596/api/weather/current-data`)
+        console.log(userLocation.latitude, userLocation.longitude)
+        axios.get(`http://localhost:9596/api/weather/current-data?lat=${userLocation.latitude}&lon=${userLocation.longitude}`)
           .then(response => {
             const resweatherData = response.data.data; 
 
@@ -110,7 +111,7 @@ function MainPage() {
                 <div className='md:w-6/12 md:h-ful w-full h-full border-2 border-[#4D6DE3] rounded-xl shadow-2xl flex justify-center items-center'>
                 {weatherData && (
                   <MainWeatherCard
-                    location={weatherData.getLocation().toString()}
+                    location={userLocation?.address || 'Address'}
                     main={weatherData.getMain().toString()}
                     temperature={weatherData.getTemperature()}
                     imageCode={weatherData.getImageCode().toString()}
@@ -140,7 +141,7 @@ function MainPage() {
             {usernName && (
             <div className='w-11/12 h-96  rounded-xl shadow-2xl flex justify-center items-center flex-col'>
               <br></br>
-              <h1 className='text-sm text-black italic'>Have a Nice Day ... {usernName}</h1>
+              <h1 className='text-md text-black italic'>Have a Nice Day ... {usernName}</h1>
               <br></br>
               <Button variant="outlined" color="error" onClick={LogoutBtnClicked}>Logout</Button>
               <h1 className='mt-10 text-sm mb-5 text-[#4D6DE3]'>Developed by @Kaligu jayanath</h1>

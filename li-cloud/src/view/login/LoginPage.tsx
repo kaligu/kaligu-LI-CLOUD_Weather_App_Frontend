@@ -31,9 +31,6 @@ function LoginPage() {
 
         // Now you can access the picture URL from the user object
         const profilePicture = user.picture;
-        // Handle the response as needed
-        // const userProfileImage = decoded;
-        console.log("*****************"+user.given_name);
 
       // Store user profile image data in local storage
       localStorage.setItem('li_cloud__data_Profile_image', profilePicture);
