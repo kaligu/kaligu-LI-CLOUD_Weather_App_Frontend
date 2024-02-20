@@ -90,7 +90,18 @@ function MainPage() {
 
                 {/* second card */}
                 <div className='md:w-6/12 md:h-ful w-full h-full border-2 border-blue-400 rounded-xl shadow-2xl'>
-                  <WeatherDetailsCard/>
+                <WeatherDetailsCard
+                  description="Few Clouds"
+                  feelsLike="308.66K"
+                  minTemperature="304.46K"
+                  maxTemperature="304.46K"
+                  windSpeed="4.2m/s"
+                  cloudiness="23%"
+                  pressure="1008hPa"
+                  humidity="60%"
+                  seaLevelPressure="1008hPa"
+                  groundLevelPressure="1008hPa"
+                />
                 </div>
             </div>
 
