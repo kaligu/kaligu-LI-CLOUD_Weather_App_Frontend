@@ -63,14 +63,14 @@ function MainWeatherCard(props: WeatherData) {
 
   return (
     <>
-      <div className='flex flex-row justify-center items-center mt-10'>
+      <div className='flex flex-row justify-center items-center'>
         <div className='w-6/12 ml-3'>
           {/* Use the selected image */}
           <img src={selectedImage} alt="Weather Icon" className="h-36" />
         </div>
         <div className='flex flex-col justify-center items-center ml-2 w-6/12'>
           <div>
-            <h1 className='text-3xl font-bold italic'>{props.location}</h1>
+            <h1 className='text-3xl font-bold '>{props.location}</h1>
             <h1 className='text-lg italic'>{dateTime.toLocaleString()}</h1>
             <br></br>
             <h1 className='text-2xl font-bold'>{props.main}</h1>

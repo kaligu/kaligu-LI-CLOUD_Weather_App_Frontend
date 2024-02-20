@@ -8,6 +8,8 @@ import WeatherDetailsCard from '../../components/WeatherDetailsCard';
 import axios from 'axios';
 import UserWeatherDTO from '../../DTOs/UserWeatherDTO';
 import FullLoadScreen from '../../components/FullLoadScreen';
+import LOGO_IMAGE from '../../assets/White_logo.png';
+import Button from '@mui/material/Button'
 
 interface Location {
     latitude: number;
@@ -70,11 +72,15 @@ function MainPage() {
       {loading && <FullLoadScreen loadingTime={5}/>}
 
       <div
-      className='flex justify-center flex-col items-center h-screen  bg-[#070D59]'
+      className='flex justify-center flex-col items-center h-screen  bg-white'
     >
-      <h1 className='text-white text-lg italic'>Lead InnovationZ Weather App</h1>
+      <div className='flex flex-row justify-center align-middle items-center'>
+      <img src={LOGO_IMAGE} alt="Logo" className="h-10" />
+      <h1 className='text-black text-lg italic text-lg ml-3'>Lead InnovationZ Cloud Weather App</h1>
+      </div>
+      
       <br></br>
-      <div className='md:w-11/12 md:h-[600px] bg-white md:rounded-2xl flex md:flex-row flex-col md:justify-center md:items-center h-screen w-screen'
+      <div className='border-2 border-[#4D6DE3] rounded-xl shadow-2xl md:w-11/12 md:h-[600px] bg-white md:rounded-2xl flex md:flex-row flex-col md:justify-center md:items-center h-screen w-screen'
        
       >
         {/* LSide */}
@@ -88,9 +94,9 @@ function MainPage() {
         {/* RSide */}
         <div className='md:w-8/12 md:h-[540px] w-full  flex flex-col justify-center items-center space-y-5'>
             {/* First Row */}
-            <div className='md:w-11/12 md:h-96 h-96 w-full flex md:flex-row flex-col space-x-2'>
+            <div className='md:w-11/12 md:h-[350px] h-96 w-full flex md:flex-row flex-col space-x-3 '>
                 {/* first card */}
-                <div className='md:w-6/12 md:h-ful w-full h-full border-2 border-[#070D59] rounded-xl shadow-2xl'>
+                <div className='md:w-6/12 md:h-ful w-full h-full border-2 border-[#4D6DE3] rounded-xl shadow-2xl flex justify-center items-center'>
                 {weatherData && (
                   <MainWeatherCard
                     location={weatherData.getLocation().toString()}
@@ -102,7 +108,7 @@ function MainPage() {
                 </div>
 
                 {/* second card */}
-                <div className='md:w-6/12 md:h-ful w-full h-full border-2 border-[#070D59] rounded-xl shadow-2xl'>
+                <div className='md:w-6/12 md:h-[350px]  w-full h-full border-2 border-[#4D6DE3] rounded-xl shadow-2xl flex justify-center items-center'>
                 {weatherData && (
                   <WeatherDetailsCard
                     description={weatherData.getDescription()}
@@ -120,7 +126,11 @@ function MainPage() {
             </div>
 
             {/* Second Row */}
-            <div className='w-11/12 h-96 border-2 border-[#070D59] rounded-xl shadow-2xl'></div>
+            <div className='w-11/12 h-96  rounded-xl shadow-2xl flex items-end justify-center items-center flex-col'>
+              <br></br>
+              <Button variant="outlined" color="error">Logout</Button>
+              <h1 className='mt-10 text-sm mb-5 text-[#4D6DE3]'>Developed by @Kaligu jayanath</h1>
+            </div>
         </div>
         
       </div>
