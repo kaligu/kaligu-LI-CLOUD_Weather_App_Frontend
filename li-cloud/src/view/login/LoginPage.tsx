@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import BACK_IMAGE from '../../assets/login_back_img.jpg';
 import LOGO_IMAGE from '../../assets/logo_image_big.png';
 import { GoogleOAuthProvider } from '@react-oauth/google';
@@ -44,16 +44,16 @@ function LoginPage() {
     {loading && <FullLoadScreen loadingTime={5}/>}
     
     <div
-      className='flex justify-center items-center h-[700px] bg-[#070D59]'
+      className='flex justify-center items-center h-screen  bg-[#070D59]'
     >
-      <div className='w-5/6 h-3/4 bg-cyan-400 rounded-2xl flex flex-col justify-center items-center'
+      <div className='md:w-5/6 md:h-[500px] bg-cyan-400 md:rounded-2xl flex flex-col justify-center items-center h-screen w-screen'
        style={{backgroundImage: `url(${BACK_IMAGE})`, backgroundSize: 'cover'}}
       >
         <div>
-          <img src={LOGO_IMAGE} alt="Logo" className="h-64" />
+          <img src={LOGO_IMAGE} alt="Logo" className="h-60" />
         </div>
 
-        <div className='flex flex-col justify-center items-center'>
+        <div className='flex flex-col justify-center items-center w-11/12'>
           <h1 className='text-3xl text-yellow-200'>Weather</h1>
           <h1 className='text-3xl text-cyan-100'>Forecast App.</h1>
           <h1 className='text-xl text-gray-50'>It's the newest weather app of LI Innovationz.It has a bunch of features and that includes most of the ones that every weather app has.</h1>
