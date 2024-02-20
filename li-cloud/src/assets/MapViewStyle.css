@@ -1,0 +1,22 @@
+.leaflet-container{
+}
+
+.leaflet-routing-container,
+.leaflet-routing-collapsible {
+  display: none !important;
+}
+
+body{
+  background-color: #4D6DE3;
+}
+
+.leaflet-marker-icon.leaflet-zoom-animated.leaflet-interactive.leaflet-marker-draggable {
+  display: none !important;
+  
+}
+
+.leaflet-marker-icon.leaflet-zoom-animated.leaflet-interactive {
+  margin-top: -60px !important;
+  margin-left: -0px;
+}
+

@@ -2,9 +2,25 @@
 // import FullLoadScreen from '../../components/FullLoadScreen';
 import BACK_IMAGE from '../../assets/main_back_Image.jpg';
 import LOGO_IMAGE from '../../assets/logo_image_big.png';
+import MapView from '../../components/MapView';
+import { useEffect, useState } from 'react';
 
 function MainPage() {
     // const [loading, setLoading] = useState(false);
+    const [userLocation, setUserLocation] = useState<Location | undefined>();
+    const [clickedLocation, setClickedLocation] = useState<Location | undefined>();
+    
+    useEffect(() => {
+ 
+    }, [userLocation, clickedLocation]);
+
+    const getUserLocation = (data: Location | undefined) => {
+        setUserLocation(data);
+      };
+
+      const getClickedLocation = (data: Location | undefined) => {
+        setClickedLocation(data);
+      };
 
   return (
     <>
@@ -20,7 +36,9 @@ function MainPage() {
         {/* LSide */}
         <div className='md:w-4/12 md:h-[560px] bg-red-100 flex justify-center items-center md:ml-4 w-full '>
             {/* Map */}
-            <div className='w-11/12 h-[380px] bg-red-500 mt-5 md:h-full'></div>
+            <div className='w-11/12 h-[380px] bg-red-500 mt-5 md:h-full'>
+                <MapView />
+            </div>
         </div>
 
         {/* RSide */}
