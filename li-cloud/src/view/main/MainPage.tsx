@@ -10,6 +10,7 @@ import UserWeatherDTO from '../../DTOs/UserWeatherDTO';
 import FullLoadScreen from '../../components/FullLoadScreen';
 import LOGO_IMAGE from '../../assets/White_logo.png';
 import Button from '@mui/material/Button'
+import { useNavigate } from 'react-router-dom';
 
 interface Location {
     latitude: number;
@@ -22,6 +23,7 @@ function MainPage() {
     const [userLocation, setUserLocation] = useState<Location | undefined>();
     const [weatherData, setWeatherData] = useState<UserWeatherDTO>();
     const [loading, setLoading] = useState(false);
+    const navigate = useNavigate(); // Initialize useNavigate hook
     
     useEffect(() => {
       // Fetch weather data when userLocation changes
@@ -65,6 +67,11 @@ function MainPage() {
         setUserLocation(data);
       };
 
+
+      const LogoutBtnClicked = (): void => {
+        // Perform logout actions here
+        navigate('/'); // Navigate to '/' route on logout button click
+      };
 
   return (
     <>
@@ -128,7 +135,8 @@ function MainPage() {
             {/* Second Row */}
             <div className='w-11/12 h-96  rounded-xl shadow-2xl flex items-end justify-center items-center flex-col'>
               <br></br>
-              <Button variant="outlined" color="error">Logout</Button>
+              
+              <Button variant="outlined" color="error" onClick={LogoutBtnClicked}>Logout</Button>
               <h1 className='mt-10 text-sm mb-5 text-[#4D6DE3]'>Developed by @Kaligu jayanath</h1>
             </div>
         </div>
