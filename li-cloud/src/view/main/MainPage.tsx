@@ -1,26 +1,29 @@
 // import { useState } from 'react';
 // import FullLoadScreen from '../../components/FullLoadScreen';
 import BACK_IMAGE from '../../assets/main_back_Image.jpg';
-import LOGO_IMAGE from '../../assets/logo_image_big.png';
 import MapView from '../../components/MapView';
 import { useEffect, useState } from 'react';
 
+interface Location {
+    latitude: number;
+    longitude: number;
+    address: string; // Address is optional
+  }
+  
 function MainPage() {
     // const [loading, setLoading] = useState(false);
     const [userLocation, setUserLocation] = useState<Location | undefined>();
-    const [clickedLocation, setClickedLocation] = useState<Location | undefined>();
+    
     
     useEffect(() => {
  
-    }, [userLocation, clickedLocation]);
+    }, [userLocation]);
 
-    const getUserLocation = (data: Location | undefined) => {
+    const getUserLocation = (data: any) => {
+        console.log("******************* UserLocation"+data.longitude)
         setUserLocation(data);
       };
 
-      const getClickedLocation = (data: Location | undefined) => {
-        setClickedLocation(data);
-      };
 
   return (
     <>
@@ -37,7 +40,7 @@ function MainPage() {
         <div className='md:w-4/12 md:h-[560px] flex justify-center items-center md:ml-4 w-full '>
             {/* Map */}
             <div className='w-11/12 h-[380px]  mt-5 md:h-full'>
-                <MapView />
+                <MapView getUserLocation={getUserLocation} />
             </div>
         </div>
 
