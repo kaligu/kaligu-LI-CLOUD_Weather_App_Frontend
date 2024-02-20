@@ -1,6 +1,7 @@
 // import { useState } from 'react';
 // import FullLoadScreen from '../../components/FullLoadScreen';
 import BACK_IMAGE from '../../assets/main_back_Image.jpg';
+import MainWeatherCard from '../../components/MainWeatherCard';
 import MapView from '../../components/MapView';
 import { useEffect, useState } from 'react';
 
@@ -49,7 +50,9 @@ function MainPage() {
             {/* First Row */}
             <div className='md:w-11/12 md:h-96 h-96 w-full bg-red-600 flex md:flex-row flex-col space-x-2'>
                 {/* first card */}
-                <div className='md:w-6/12 md:h-full bg-green-200 w-full h-full'></div>
+                <div className='md:w-6/12 md:h-full bg-green-200 w-full h-full'>
+                  <MainWeatherCard/>
+                </div>
 
                 {/* second card */}
                 <div className='md:w-6/12 md:h-full bg-green-400 w-full h-full'></div>
