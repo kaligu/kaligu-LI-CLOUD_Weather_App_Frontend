@@ -204,7 +204,7 @@ function MapView() {
             <div className='map'>
               {(userLocation || errorFetchingLocation) && (
                 <MapContainer
-
+                className="map-container" 
                   center={userLocation ? locationToLatLngExpression(userLocation) : [0, 0]}
                   zoom={userLocation ? 15 : 0}
                   scrollWheelZoom={true}

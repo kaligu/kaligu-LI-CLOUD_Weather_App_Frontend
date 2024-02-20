@@ -34,15 +34,15 @@ function MainPage() {
        style={{backgroundImage: `url(${BACK_IMAGE})`, backgroundSize: 'cover'}}
       >
         {/* LSide */}
-        <div className='md:w-4/12 md:h-[560px] bg-red-100 flex justify-center items-center md:ml-4 w-full '>
+        <div className='md:w-4/12 md:h-[560px] flex justify-center items-center md:ml-4 w-full '>
             {/* Map */}
-            <div className='w-11/12 h-[380px] bg-red-500 mt-5 md:h-full'>
+            <div className='w-11/12 h-[380px]  mt-5 md:h-full'>
                 <MapView />
             </div>
         </div>
 
         {/* RSide */}
-        <div className='md:w-8/12 md:h-[540px] w-full  bg-red-200 flex flex-col justify-center items-center space-y-5'>
+        <div className='md:w-8/12 md:h-[540px] w-full  flex flex-col justify-center items-center space-y-5'>
             {/* First Row */}
             <div className='md:w-11/12 md:h-96 h-96 w-full bg-red-600 flex md:flex-row flex-col space-x-2'>
                 {/* first card */}
