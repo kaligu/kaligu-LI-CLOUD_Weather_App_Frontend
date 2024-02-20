@@ -4,6 +4,7 @@ import BACK_IMAGE from '../../assets/main_back_Image.jpg';
 import MainWeatherCard from '../../components/MainWeatherCard';
 import MapView from '../../components/MapView';
 import { useEffect, useState } from 'react';
+import WeatherDetailsCard from '../../components/WeatherDetailsCard';
 
 interface Location {
     latitude: number;
@@ -57,7 +58,9 @@ function MainPage() {
                 </div>
 
                 {/* second card */}
-                <div className='md:w-6/12 md:h-full bg-green-400 w-full h-full'></div>
+                <div className='md:w-6/12 md:h-ful w-full h-full border-2 border-white rounded-xl shadow-2xl'>
+                  <WeatherDetailsCard/>
+                </div>
             </div>
 
             {/* Second Row */}
