@@ -44,9 +44,9 @@ function LoginPage() {
     {loading && <FullLoadScreen loadingTime={5}/>}
     
     <div
-      className='flex justify-center items-center h-screen  bg-[#070D59]'
+      className='flex justify-center items-center h-screen  bg-white'
     >
-      <div className='md:w-5/6 md:h-[500px] bg-cyan-400 md:rounded-2xl flex flex-col justify-center items-center h-screen w-screen'
+      <div className='border-2 border-[#4D6DE3] rounded-xl shadow-2xl  md:w-5/6 md:h-[500px] bg-[#4D6DE3] md:rounded-2xl flex flex-col justify-center items-center h-screen w-screen'
        style={{backgroundImage: `url(${BACK_IMAGE})`, backgroundSize: 'cover'}}
       >
         <div>

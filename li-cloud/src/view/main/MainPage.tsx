@@ -76,7 +76,7 @@ function MainPage() {
     >
       <div className='flex flex-row justify-center align-middle items-center'>
       <img src={LOGO_IMAGE} alt="Logo" className="h-10" />
-      <h1 className='text-black text-lg italic text-lg ml-3'>Lead InnovationZ Cloud Weather App</h1>
+      <h1 className='text-black text-lg italic font-semibold ml-3'>Lead InnovationZ Cloud Weather App</h1>
       </div>
       
       <br></br>
