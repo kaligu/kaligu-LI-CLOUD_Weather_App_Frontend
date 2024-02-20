@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import BACK_IMAGE from '../assets/login_back_img.jpg';
-import LOGO_IMAGE from '../assets/logo_image_big.png';
+import BACK_IMAGE from '../../assets/login_back_img.jpg';
+import LOGO_IMAGE from '../../assets/logo_image_big.png';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { GoogleLogin } from '@react-oauth/google';
 import FullLoadScreen from '../../components/FullLoadScreen';
