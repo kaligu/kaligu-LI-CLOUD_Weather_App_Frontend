@@ -1,6 +1,6 @@
 // import { useState } from 'react';
 // import FullLoadScreen from '../../components/FullLoadScreen';
-import BACK_IMAGE from '../../assets/main_back_Image.jpg';
+
 import MainWeatherCard from '../../components/MainWeatherCard';
 import MapView from '../../components/MapView';
 import { useEffect, useState } from 'react';
@@ -90,12 +90,19 @@ function MainPage() {
             {/* First Row */}
             <div className='md:w-11/12 md:h-96 h-96 w-full flex md:flex-row flex-col space-x-2'>
                 {/* first card */}
-                <div className='md:w-6/12 md:h-ful w-full h-full border-2 border-blue-400 rounded-xl shadow-2xl'>
-                  <MainWeatherCard/>
+                <div className='md:w-6/12 md:h-ful w-full h-full border-2 border-[#070D59] rounded-xl shadow-2xl'>
+                {weatherData && (
+                  <MainWeatherCard
+                    location={weatherData.getLocation().toString()}
+                    main={weatherData.getMain().toString()}
+                    temperature={weatherData.getTemperature()}
+                    imageCode={weatherData.getImageCode().toString()}
+                  />
+                )}
                 </div>
 
                 {/* second card */}
-                <div className='md:w-6/12 md:h-ful w-full h-full border-2 border-blue-400 rounded-xl shadow-2xl'>
+                <div className='md:w-6/12 md:h-ful w-full h-full border-2 border-[#070D59] rounded-xl shadow-2xl'>
                 {weatherData && (
                   <WeatherDetailsCard
                     description={weatherData.getDescription()}
@@ -113,7 +120,7 @@ function MainPage() {
             </div>
 
             {/* Second Row */}
-            <div className='w-11/12 h-96 border-2 border-blue-400 rounded-xl shadow-2xl'></div>
+            <div className='w-11/12 h-96 border-2 border-[#070D59] rounded-xl shadow-2xl'></div>
         </div>
         
       </div>
