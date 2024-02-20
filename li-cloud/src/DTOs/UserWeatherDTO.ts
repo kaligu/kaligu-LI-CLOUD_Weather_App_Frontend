@@ -11,8 +11,9 @@ export default class UserWeatherDTO {
     private seaLevelPressure: number;
     private imageCode: string;
     private location: string;
+    private main: string;
 
-    constructor(description: string, temperature: number, feelsLike: number, minTemperature: number, maxTemperature: number, windSpeed: number, cloudiness: number, pressure: number, humidity: number, seaLevelPressure: number, imageCode: string, location: string) {
+    constructor(description: string, temperature: number, feelsLike: number, minTemperature: number, maxTemperature: number, windSpeed: number, cloudiness: number, pressure: number, humidity: number, seaLevelPressure: number, imageCode: string, location: string, main: string) {
         this.description = description;
         this.temperature = temperature;
         this.feelsLike = feelsLike;
@@ -25,6 +26,7 @@ export default class UserWeatherDTO {
         this.seaLevelPressure = seaLevelPressure;
         this.imageCode = imageCode;
         this.location = location;
+        this.main = main;
     }
 
     getDescription(): string {
@@ -123,6 +125,14 @@ export default class UserWeatherDTO {
         this.location = value;
     }
 
+    getMain(): string {
+        return this.main;
+    }
+
+    setMain(value: string): void {
+        this.main = value;
+    }
+
     toString(): string {
         return JSON.stringify({
             description: this.description,
@@ -136,7 +146,8 @@ export default class UserWeatherDTO {
             humidity: this.humidity,
             seaLevelPressure: this.seaLevelPressure,
             imageCode: this.imageCode,
-            location: this.location
+            location: this.location,
+            main: this.main
         });
     }
 }

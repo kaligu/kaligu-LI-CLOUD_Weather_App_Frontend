@@ -1,5 +1,5 @@
 import React from 'react'
-import LOGO_IMAGE from '../assets/logo_image_big.png';
+import LOGO_IMAGE from '../assets/icons/01d.svg';
 
 function MainWeatherCard() {
   return (
